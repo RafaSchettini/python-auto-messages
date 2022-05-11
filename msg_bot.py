@@ -7,11 +7,11 @@ os.system('cls')
 
 print("How many different sentences do you want to send?")
 
-choice = int(input("1 - Only ONE / 2 - MORE than ONE: "))
+choice = int(input("1 - Only ONE / 2 - MORE than ONE / 3 - READ .txt file: "))
 
-while choice < 1 or choice > 2:
+while choice < 1 or choice > 3:
     print("Invalid Choice. Please Try Again:") 
-    choice = int(input("1 - Only ONE / 2 - MORE than ONE: "))
+    choice = int(input("1 - Only ONE / 2 - MORE than ONE / 3 - READ .txt file: "))
 
 if choice == 1:
     msg = str(input("Type your message:\n"))
@@ -57,3 +57,13 @@ elif choice == 2:
         pg.write(random.choice(messages))
         pg.press("Enter")
         actual_qtt = actual_qtt + 1
+
+elif choice == 3:
+    print("Reading words...")
+    txt = open("words.txt", "r")
+    
+    time.sleep(5)
+    
+    for i in txt:
+        pg.write(i)
+        pg.press("Enter")
